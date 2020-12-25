@@ -12,27 +12,17 @@ cat text.txt | qrencode -s 9 -o qrcode6.png
 rm -f text.txt
 
 #Перевод картинки в двочиный код и сохранение в файл, удаление qr
-cp /dev/null ghjk.txt
+cp /dev/null 123.txt
+echo 'Почему-то картинки ломаются при передаче по сети, глянь что можно сделать' >> 123.txt
 chmod ugo+rwx myfun2.py 
-./myfun2.py 
+./myfun2.py >> 123.txt
 rm -f qrcode6.png
 
-#Небольшая корректировка текстового файла
-chmod ugo+rwx myfun3.py 
-./myfun3.py 
-
 #Файл прячется в rar-архив, архив сливается с картинкой
-rar a arch.rar ghjk.txt
-cat Tux.jpg arch.rar > pict123.jpg
+rar a arch.rar 123.txt
+cat lin.jpeg arch.rar > pict123.jpg
+mv pict123.jpg work/pict123.jpg
 
-#Удаление всех лишних файлов
-rm -f ghjk.txt
+#Удаление лишних файлов
+rm -f 123.txt
 rm -f arch.rar
-rm -f myfun1.py
-rm -f myfun2.py
-rm -f myfun3.py
-rm -f Tux.jpg
-
-#Удаление html-файла в apache и перемещение туда получившейся картинки
-rm -f /var/www/html/index.html
-mv pict123.jpg /var/www/html/pict.jpg

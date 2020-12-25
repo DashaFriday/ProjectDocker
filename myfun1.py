@@ -2,10 +2,7 @@
 
 import random
 
-WORDS = ("polytech", "flag", "python", "what_you_looking_for", "answer",  "strange_things", "project", "container", "docker", "easy", "random", "words")
-word = random.choice(WORDS)+"_"+random.choice(WORDS)+"_"+random.choice(WORDS)
+flag = 'flag{' + ''.join(random.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') for _ in range(random.randint(10, 15))) + '}'
 
 with open("text.txt", "w") as file:
-    file.write(word)
-
-
+    file.write(flag)
